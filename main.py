@@ -1,5 +1,5 @@
-
-
+from ui.ulogin import Ulogin
+from tkinter import Tk
 root = Tk()
-login = LoginFrame(master = root)
+login = Ulogin(master=root)
 login.mainloop()

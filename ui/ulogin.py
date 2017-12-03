@@ -3,7 +3,8 @@
     User Login GUI
 """
 
-from tkinter import Frame,Entry,Button,Checkbutton,Canvas
+from tkinter import Frame, Entry, Button, Checkbutton, Canvas, Label
+
 
 class Ulogin(Frame):
     def logincheck(self):
@@ -27,7 +28,7 @@ class Ulogin(Frame):
         """
         pass
 
-    def pwcheck(self,flag):
+    def pwcheck(self, flag):
         """
         Password Checkout
         :return:
@@ -49,18 +50,21 @@ class Ulogin(Frame):
         pass
 
     def createWidget(self):
+        self.size()
+        self['width'] = 290
+        self.LableName = Label(self)
+        self.LableName["text"] = "账号"
+        self.LableName.pack()
         username = Entry()
         password = Entry()
         login = Button()
         register = Button()
         forgot = Button()
-        icon = Canvas() # or simple pic
+        icon = Canvas()  # or simple pic
 
-        pass
-
-
-    def __init__(self,master=None):
-        Frame.__init__(self,master)
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.createWidget()
         self['height'] = 400
         self['width'] = 290
         self.pack()
