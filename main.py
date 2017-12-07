@@ -1,5 +1,10 @@
-from ui.ulogin import Ulogin
-from tkinter import Tk
+from ui.ulogin import *
+from tkinter import Tk,Toplevel
+
 root = Tk()
-login = Ulogin(master=root)
-login.mainloop()
+tt = Ulogin(root)
+root.title("密码管理器")
+root.resizable(0,0)
+root.mainloop()
+
+
