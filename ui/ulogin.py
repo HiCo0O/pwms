@@ -3,8 +3,8 @@
     User Login GUI
 """
 
-from tkinter import Frame, Entry, Button, Checkbutton, Canvas, Label
-
+from tkinter import Frame, Entry, Button, Checkbutton, Canvas, Label,Toplevel,StringVar,W
+from tkinter import LEFT,RIGHT,CENTER
 
 class Ulogin(Frame):
     def logincheck(self):
@@ -49,22 +49,32 @@ class Ulogin(Frame):
         """
         pass
 
+
+
     def createWidget(self):
-        self.size()
-        self['width'] = 290
-        self.LableName = Label(self)
-        self.LableName["text"] = "账号"
-        self.LableName.pack()
-        username = Entry()
-        password = Entry()
-        login = Button()
-        register = Button()
-        forgot = Button()
-        icon = Canvas()  # or simple pic
+        username = StringVar()
+        username.set("输入账户")
+        password = StringVar()
+        password.set("输入密码")
+
+        self.loginarea = Frame(self,width=200)
+        self.loginarea.grid(column=0,row=0)
+
+        self.icon = Frame(self.loginarea,height=200)
+        self.icon.grid(column=0,row=0)
+
+        self.usernameEntry = Entry(self.loginarea, textvariable=username, width=25, justify='center')
+        self.usernameEntry.grid(column=0,row=1, pady=5, ipady=5)
+
+        self.passwordEntry = Entry(self.loginarea, textvariable=password, width=25, justify='center', show="*")
+        self.passwordEntry.grid(column=0,row=2, pady=5, ipady=5)
+
+
 
     def __init__(self, master=None):
         Frame.__init__(self, master)
         self.createWidget()
-        self['height'] = 400
-        self['width'] = 290
-        self.pack()
+        self["height"] = 385
+        self["width"] = 175
+        self.pack_propagate(False)
+        self.pack(padx=50)
