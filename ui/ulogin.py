@@ -57,29 +57,19 @@ class Ulogin(Frame):
         password = StringVar()
         password.set("输入密码")
 
-        self.iconframe = Frame(self,height=200)
-        self.iconframe.pack()
+        self.loginarea = Frame(self,width=200)
+        self.loginarea.grid(column=0,row=0)
 
-        self.usernameEntry = Entry(self, textvariable=username, width=25, justify='center')
-        self.usernameEntry.pack(anchor=CENTER, pady=5, ipady=5)
+        self.icon = Frame(self.loginarea,height=200)
+        self.icon.grid(column=0,row=0)
 
-        self.passwordEntry = Entry(self, textvariable=password, width=25, justify='center', show="*")
-        self.passwordEntry.pack(anchor=CENTER, pady=5, ipady=5)
+        self.usernameEntry = Entry(self.loginarea, textvariable=username, width=25, justify='center')
+        self.usernameEntry.grid(column=0,row=1, pady=5, ipady=5)
 
-        self.remeberlabel=Label(self,text="记住密码")
-        self.remeberlabel.pack(side=LEFT)
+        self.passwordEntry = Entry(self.loginarea, textvariable=password, width=25, justify='center', show="*")
+        self.passwordEntry.grid(column=0,row=2, pady=5, ipady=5)
 
-        self.autolabel = Label(self, text="自动登录")
-        self.autolabel.pack(side=LEFT)
 
-        self.loginbutton = Button(self,text="登录")
-        self.loginbutton.pack(side=LEFT,ipadx=5)
-
-        self.forgotbutton = Button(self,text="忘记密码")
-        self.forgotbutton.pack(padx=8,ipadx=5,side=LEFT)
-
-        self.registerbutton = Button(self,text="注册")
-        self.registerbutton.pack(ipadx=5,side=LEFT)
 
     def __init__(self, master=None):
         Frame.__init__(self, master)
